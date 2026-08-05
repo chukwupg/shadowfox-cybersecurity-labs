@@ -63,7 +63,7 @@ Each task is documented using a consistent structure:
 * Commands Executed
 * Evidence (Screenshots)
 * Findings
-* Security Implications or Impact
+* Security Analysis
 * Lessons Learned
 * References (where applicable)
 
