@@ -55,6 +55,7 @@ Each task is documented using a consistent structure:
 
 * Objective
 * Background
+* Scope or Target Information
 * Tools Used
 * Lab Environment
 * Methodology
@@ -62,7 +63,7 @@ Each task is documented using a consistent structure:
 * Commands Executed
 * Evidence (Screenshots)
 * Findings
-* Security Implications
+* Security Implications or Impact
 * Lessons Learned
 * References (where applicable)
 
