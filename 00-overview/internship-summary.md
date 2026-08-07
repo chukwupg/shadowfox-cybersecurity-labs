@@ -102,8 +102,8 @@ This repository serves three primary purposes:
 | Level        | Progress      |
 | ------------ | ------------- |
 | Overview     | ✅ Completed   |
-| Beginner     | ⏳ Not Started |
-| Intermediate | ⏳ Not Started |
+| Beginner     | ✅ Completed |
+| Intermediate | ⏳ In Progress |
 | Advanced     | ⏳ Not Started |
 
 Progress will be updated as each task is completed and documented.

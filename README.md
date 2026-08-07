@@ -91,10 +91,10 @@ Applies penetration testing methodologies to complete a comprehensive security a
 
 | Level        | Status        |
 | ------------ | ------------- |
-| Overview     | ✅ In Progress |
-| Beginner     | ⏳ Pending     |
-| Intermediate | ⏳ Pending     |
-| Advanced     | ⏳ Pending     |
+| Overview     | ✅ Completed |
+| Beginner     | ✅ Completed |
+| Intermediate | ⏳ In Progress |
+| Advanced     | ⏳ Not Started |
 
 ---
 
