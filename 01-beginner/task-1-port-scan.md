@@ -172,3 +172,7 @@ These findings provide a foundation for the next phase of the assessment, where 
 # Conclusion
 
 The reconnaissance phase successfully confirmed network connectivity to the target, identified its resolved IP address, discovered the exposed TCP ports, and enumerated the primary services running on those ports. The information gathered establishes the initial attack surface and serves as the basis for the next task: **Directory Bruteforcing**, where hidden files and directories within the web application will be identified.
+
+## Next Step
+
+**Task 2: Directory Bruteforcing**, to uncover hidden endpoints and expand the attack surface.
