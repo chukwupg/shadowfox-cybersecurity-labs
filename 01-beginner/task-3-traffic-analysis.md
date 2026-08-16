@@ -180,3 +180,7 @@ By analysing the traffic, I observed that login credentials are transmitted in p
 The findings highlight the importance of implementing HTTPS to ensure confidentiality and integrity of sensitive data during transmission.
 
 ---
+
+# Next Step
+
+Proceed to **Intermediate Level Tasks**
