@@ -215,7 +215,7 @@ The capture was restricted to the authorized access point and its operating chan
 
 Packet capture started
 
-> Note the client mac address in the result which will be used for the next step
+> Note the client mac address listed under the station column in the result, it will be used for the next step
 
 ### Evidence
 
@@ -232,11 +232,11 @@ While monitoring the target wireless traffic, open a new tab and send a de-authe
 ### Command
 
 ```
-sudo aireplay-ng --deauth 1 -a D8:D8:66:FF:FE:E7 -c C6:D7:D6:50:59:A3 wlan0
+sudo aireplay-ng --deauth 1 -a <target-bssid> -c <client-mac-address> <monitor-interface>
 
 And/Or
 
-sudo aireplay-ng --deauth 2 -a D8:D8:66:FF:FE:E7 -c C6:D7:D6:50:59:A3 wlan0
+sudo aireplay-ng --deauth 2 -a <target-bssid> -c <client-mac-address> <monitor-interface>
 ```
 
 Either of the command should work but if you didn’t get a handshake from sending 1 deauth packet `--deauth 1` then try sending 2 which is the second command with `--deauth 2` 
@@ -259,29 +259,7 @@ Note: high number of deauthentication messages are noisy on the network but 1 or
 
 ---
 
-# Step 7: Disable Monitor Mode
-
-Take the Wifi Adapter out of monitor mode
-
-### Command
-
-```
-sudo airmon-ng stop wlan0
-```
-
-### Result
-
-- Monitor mode disabled on the wireless adapter
-
-### Evidence
-
-**Wireless adapter monitor mode disabled**
-
-![Disable monitor mode](/assets/screenshots/02-intermediate/task-4/monitor-mode-disabled.png)
-
----
-
-# Step 8: Verify Captured Authentication Data
+# Step 7: Verify Captured Authentication Data
 
 Inspect the capture file to verify that the required authentication exchange had been captured.
 
@@ -304,7 +282,11 @@ To check the capture file for valid WPA authentication data.
 
 ### Evidence
 
-**Confirm handshake file**
+**Confirmed handshake has been captured from the monitoring terminal**
+
+![Handshake captured](/assets/screenshots/02-intermediate/task-4/handshake-captured.png)
+
+**Confirmed handshake file exist**
 
 ![Handshake file](/assets/screenshots/02-intermediate/task-4/capture-file.png)
 
@@ -314,24 +296,59 @@ To check the capture file for valid WPA authentication data.
 
 ---
 
-# Step 9: Prepare Wordlist
+# Step 8: Disable Monitor Mode
 
-Confirm the directory of your desired wordlist for offline password recovery.
+Take the Wifi Adapter out of monitor mode
 
 ### Command
 
 ```
-wordlists -l
+sudo airmon-ng stop wlan0
 ```
-For this lab, I used the `rockyou` wordlist
 
 ### Result
 
-- `rockyou.txt` present in the directory `/usr/share/wordlists/rockyou.txt`
+- Monitor mode disabled on the wireless adapter
 
 ### Evidence
 
-![Wordlists](/assets/screenshots/02-intermediate/task-4/check-for-wordlist.png)
+**Wireless adapter monitor mode disabled**
+
+![Disable monitor mode](/assets/screenshots/02-intermediate/task-4/monitor-mode-disabled.png)
+
+---
+
+# Step 9: Create a Targeted Wordlist
+
+Create a custom wordlist for the authorized network.
+
+> The purpose of the wordlist was to provide possible password candidates relevant to the controlled lab environment rather than relying exclusively on a large generic dictionary.
+
+### Command
+
+```
+nano wordlist.txt
+```
+
+Confirm presence of the targeted wordlist for offline password recovery.
+
+```
+ls | grep wordlist
+```
+### Result
+
+- Targeted wordlist created successfully
+- `wordlist.txt` present in the current working directory
+
+### Evidence
+
+**Create targeted wordlist**
+
+![Targeted wordlist](/assets/screenshots/02-intermediate/task-4/create-targeted-wordlist.png)
+
+**Confirm targeted wordlist file exist**
+
+![Wordlists](/assets/screenshots/02-intermediate/task-4/confirm-targeted-wordlist-exist.png)
 
 ---
 
@@ -406,9 +423,9 @@ Modern wireless security features such as Protected Management Frames (PMF / 802
 
 ## Finding 1: Password Exposure and Strength
 
-The wireless password was recoverable using the `rockyou` wordlist.
+The wireless password was recoverable using a targeted wordlist.
 
-This demonstrates that passwords based on predictable or discoverable information, and known data breaches can be vulnerable to offline password-guessing attacks.
+This demonstrates that passwords based on predictable or discoverable information can be vulnerable to offline password-guessing attacks.
 
 Risk: Medium
 
@@ -488,11 +505,11 @@ sudo airodump-ng -c <channel> --bssid <target-bssid> -w <output-filename> <monit
 
 ### Send a De-authentication Packet
 ```
-sudo aireplay-ng --deauth 1 -a D8:D8:66:FF:FE:E7 -c C6:D7:D6:50:59:A3 wlan0
+sudo aireplay-ng --deauth 1 -a <target-bssid> -c <client-mac-address> <monitor-interface>
 
 And/Or
 
-sudo aireplay-ng --deauth 2 -a D8:D8:66:FF:FE:E7 -c C6:D7:D6:50:59:A3 wlan0
+sudo aireplay-ng --deauth 2 -a <target-bssid> -c <client-mac-address> <monitor-interface>
 ```
 
 ### Disable Monitor Mode
@@ -506,9 +523,10 @@ ls | grep <search term>
 aircrack-ng <capture-file>
 ```
 
-### Prepare Wordlist
+### Create wordlist
 ```
-wordlists -l
+nano wordlist.txt
+ls | grep wordlist
 ```
 
 ### Perform offline password recovery
