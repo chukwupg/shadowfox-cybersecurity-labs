@@ -58,7 +58,7 @@ These entire workflow was conducted within my personal controlled lab environmen
 
 ---
 
-# 🌐 Lab Scope
+# Lab Scope
 
 | Component | Description |
 |---|---|
