@@ -303,7 +303,7 @@ Take the Wifi Adapter out of monitor mode
 ### Command
 
 ```
-sudo airmon-ng stop wlan0
+sudo airmon-ng stop <monitor-interface>
 ```
 
 ### Result
