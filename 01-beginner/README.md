@@ -46,7 +46,7 @@ The beginner level tasks of the internship focuses on foundational web applicati
 - Identified multiple ASP endpoints and application directories
 - Discovered authentication pages, backend-related files, and configuration files.
 
-📄 **Documentation:** [`task-2-directory-bruteforcing.md`](./task-2-directory-bruteforce.md)
+📄 **Documentation:** [`task-2-directory-bruteforcing.md`](./task-2-directory-bruteforcing.md)
 
 ---
 
