@@ -93,8 +93,8 @@ Applies penetration testing methodologies to complete a comprehensive security a
 | ------------ | ------------- |
 | Overview     | ✅ Completed |
 | Beginner     | ✅ Completed |
-| Intermediate | ⏳ In Progress |
-| Advanced     | ⏳ Not Started |
+| Intermediate | ✅ Completed |
+| Advanced     | ⏳ In Progress |
 
 ---
 
